@@ -1,0 +1,52 @@
+.account-form {
+  display: flex;
+  align-items: center;
+  background-color: #ECEFF1;
+  md-input-container {
+    width: 100%;
+  }
+}
+
+@include screen-gt(sm) {
+  .account-form {
+    margin-bottom: 20px;
+    padding: 10px 20px 0 20px;
+  }
+
+  .account-form__input {
+    max-width: 200px;
+  }
+
+  .account-form__select {
+    width: 200px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+  }
+
+  .account-form__actions {
+    padding-bottom: 10px;
+  }
+}
+
+@include screen(xs) {
+  .account-form {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .account-form__input {
+    width: 100%;
+  }
+
+  .account-form__select {
+    width: 100%;
+
+  }
+}
+
+.account-form_in_container {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+

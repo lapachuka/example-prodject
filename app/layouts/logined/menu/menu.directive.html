@@ -1,0 +1,15 @@
+<nav class="site-nav">
+    <a class="site-nav__item site-nav__item_state_heading u-hidden-sm-gt" href="" ng-click="menuCtrl.toggleMenu()">
+        <span layout="row" layout-align="none center" ng-repeat="item in menuCtrl.menuList" ng-if="menuCtrl.isActive(item.state)">
+            <span flex>{{item.name}}</span>
+            <i class="material-icons material-icons_more-nav">expand_more</i>
+        </span>
+    </a>
+    <div class="site-nav__list" ng-class="{'u-hidden-xs-lt': !menuCtrl.isOpen}">
+        <a class="site-nav__item"
+           ng-class="menuCtrl.getClass('{{item.state}}')"
+           ng-href='{{menuCtrl.getRouteSref(item)}}'
+           ng-repeat="item in menuCtrl.menuList"
+        >{{item.name}}</a>
+    </div>
+</nav>

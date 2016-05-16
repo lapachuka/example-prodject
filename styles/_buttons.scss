@@ -1,0 +1,36 @@
+//
+// Link buttons
+//
+
+.btn-clean {
+  display: inline-block;
+  padding: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  font-weight: normal;
+  color: inherit;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &:disabled {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &,
+  &:focus,
+  &:active,
+  &:hover {
+    border-color: transparent;
+    outline: none;
+  }
+}
+
+.btn-mobile-tran-edit{
+  right: 0;
+  position: absolute;
+  margin-right: 15px;
+  padding: 0 0 20px 0;
+}

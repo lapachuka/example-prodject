@@ -1,0 +1,70 @@
+<sub-menu type="options"></sub-menu>
+
+<div class="container">
+    <form class="account-form account-form_in_container" novalidate name="category">
+        <div class="account-form__input">
+            <md-input-container class="md-block u-margin-b-n">
+                <label>Категорія</label>
+                <input type="text" ng-model="categoryCtrl.category.name" required>
+            </md-input-container>
+        </div>
+        <div class="account-form__select">
+            <md-input-container>
+                <label>Головна категорія</label>
+                <md-select ng-model="categoryCtrl.category.parent_id">
+                    <md-option value="">-</md-option>
+                    <md-option ng-repeat="category in categoryCtrl.categories" value="{{category.id}}">
+                        {{category.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div class="account-form__actions">
+            <md-button class="md-raised md-primary md-button_override" ng-click="categoryCtrl.create()"
+                       ng-disabled="!categoryCtrl.category.name" ng-if="!categoryCtrl.editMode">Додати
+            </md-button>
+            <md-button class="md-raised md-accent md-button_override " ng-click="categoryCtrl.update()"
+                       ng-disabled="!categoryCtrl.category.name" ng-if="categoryCtrl.editMode" ng-disabled="!categoryCtrl.category.name">
+                Зберегти
+            </md-button>
+            <md-button class="md-raised md-warn md-button_override" ng-if="categoryCtrl.editMode"
+                       ng-click="categoryCtrl.cancelEditMode()">Відмінити
+            </md-button>
+        </div>
+    </form>
+    <ul class="list" ng-if="categoryCtrl.categories && categoryCtrl.categories.length > 0">
+        <li class="list__item"  ng-repeat="category in categoryCtrl.categories track by $index">
+            <div class="list-item">
+                <span class="list-item__body">{{category.name}}</span>
+                    <span>
+                        <md-button class="md-icon-button" ng-click="categoryCtrl.showConfirmDeleteWindow($index)">
+                            <md-icon class="material-icons"  aria-label="Delete">&#xE92B;</md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" ng-click="categoryCtrl.enableEditMode($index)">
+                            <md-icon class="material-icons" aria-label="Edit">&#xE3C9;</md-icon>
+                        </md-button>
+                    </span>
+            </div>
+
+            <ul class="list list_nested" ng-if="category.sub_categories">
+                <li class="list__item" ng-repeat="subCat in category.sub_categories track by subCat.id">
+                    <div class="list-item">
+                        <span class="list-item__body">{{subCat.name}}</span>
+                            <span>
+                                <md-button class="md-icon-button" ng-click="categoryCtrl.showConfirmDeleteWindow($parent.$index, $index)">
+                                    <md-icon class="material-icons"  aria-label="Delete">&#xE92B;</md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" ng-click="categoryCtrl.enableEditMode($parent.$index, $index)">
+                                    <md-icon class="material-icons" aria-label="Edit">&#xE3C9;</md-icon>
+                                </md-button>
+                            </span>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div ng-if="!categoryCtrl.categories || categoryCtrl.categories.length === 0">
+        Не створено жодної категорії для прибутків
+    </div>
+</div>

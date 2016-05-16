@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "md-fab.css",
+	"sources": [
+		"../../../styles/angular-material/md-fab.scss"
+	],
+	"mappings": "AAAA,iBAAiB,AAAA,qBAAqB,CAAC;EACrC,GAAG,EAAE,IAAK;EACV,KAAK,EAAE,IAAK;CACb;;AAED,iBAAiB,AAAA,wBAAwB,CAAC;EACxC,QAAQ,EAAE,KAAM;CACjB",
+	"names": []
+}

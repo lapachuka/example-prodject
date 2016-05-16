@@ -1,0 +1,32 @@
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  font-weight: 500;
+}
+
+.list__item {
+  position: relative;
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+
+.list-item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.list-item__body {
+  flex: 1;
+}
+
+.list_nested {
+  font-size: .9em;
+  font-weight: normal;
+  border-bottom: none;
+
+  .list__item {
+    padding-left: 20px;
+  }
+}

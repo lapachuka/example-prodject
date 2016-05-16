@@ -1,0 +1,27 @@
+//
+// Hide utility
+//
+
+.u-hidden {
+  display: none !important;
+}
+
+@each $bp in map-keys($grid-breakpoints) {
+  .u-hidden-#{$bp}-gt {
+    @include screen-gt($bp) {
+      display: none !important;
+    }
+  }
+
+  .u-hidden-#{$bp}-lt {
+    @include screen-lt($bp) {
+      display: none !important;
+    }
+  }
+
+  .u-hidden-#{$bp} {
+    @include screen($bp) {
+      display: none !important;
+    }
+  }
+}

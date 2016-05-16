@@ -1,0 +1,88 @@
+.transaction-header {
+  position: relative;
+
+  margin: 0 0 .4rem;
+  padding: .5rem 0;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-weight: 500;
+  color: inherit;
+}
+
+.transaction {
+  overflow: hidden;
+  padding: .8rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+.transaction-group + .transaction-group {
+  margin-top: 1.4rem;
+}
+
+.transaction__category {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+.transaction__desc {
+  display: block;
+  padding: 0;
+  font-size: .9rem;
+  color: #999;
+}
+
+.transaction__val {
+  font-size: .9rem;
+  text-align: left;
+  font-weight: 400;
+}
+
+.transaction__account {
+  padding: .2rem .4rem;
+  font-size: .6rem;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: .2rem;
+  text-transform: uppercase;
+  letter-spacing: .04rem;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.transaction__account_type_expense {
+  border-color: rgba(246, 84, 50, 0.38);
+  color: rgb(246, 84, 50);
+}
+
+.transaction__account_type_income {
+  border-color: #93BC00;
+  color: #93BC00;
+}
+
+@include screen-gt(sm) {
+  .transaction {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    align-content: stretch;
+  }
+
+  .transaction__category {
+    width: 25%;
+    white-space: nowrap;
+  }
+
+  .transaction__desc {
+    flex-grow: 2;
+  }
+
+  .transaction__val {
+    min-width: 5rem;
+  }
+}

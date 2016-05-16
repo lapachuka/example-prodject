@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="content">
+        <h2>Рахунки:</h2>
+
+        <div layout="row" layout-wrap>
+            <div
+                class="layout-column flex-xs flex-gt-xs-50"
+                flex-xs
+                layout="column"
+                ng-repeat="account in dashboardCtrl.accounts">
+                <md-card>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools">
+                            <h3 class="md-flex">{{account.name}} : {{account.amount}}  {{account.currency_name}}</h3>
+                        </div>
+                    </md-toolbar>
+                    <md-card ng-repeat="sub_account in account.sub_accounts"
+                             class="{{dashboardCtrl.currencyColor[sub_account.currency_name]}}">
+                        <md-card-title>
+                            <md-card-title-text>
+                                    <span
+                                        class="md-headline">{{sub_account.amount}} {{sub_account.currency_name}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                    </md-card>
+                </md-card>
+            </div>
+        </div>
+    </div>
+</div>

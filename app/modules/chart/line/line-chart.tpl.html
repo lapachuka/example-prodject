@@ -1,0 +1,34 @@
+<div layout="column" ng-cloak>
+    <md-toolbar class="md-info">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">{{lineCtrl.title}}</h2>
+        </div>
+    </md-toolbar>
+    <md-content flex layout-padding layout-align="center center">
+        <div layout="row">
+            <md-input-container flex="50%">
+                <label>Year</label>
+                <md-select ng-model="lineCtrl.currentYear" ng-change="lineCtrl.getData()">
+                    <md-option ng-repeat="year in lineCtrl.years" value="{{year.id}}">
+                        {{year.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container flex="50%">
+                <label>Currency</label>
+                <md-select ng-model="lineCtrl.currentCurrency" ng-change="lineCtrl.getData()">
+                    <md-option ng-repeat="currency in lineCtrl.currencyCategory" value="{{currency.id}}">
+                        {{currency.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <canvas class="chart chart-line"
+                chart-data="lineCtrl.chartData.data"
+                chart-series="lineCtrl.chartData.series"
+                chart-labels="lineCtrl.chartData.labels"
+                chart-colours="lineCtrl.chartData.colours"
+                height="80"></canvas>
+    </md-content>
+</div>

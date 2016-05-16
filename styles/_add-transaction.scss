@@ -1,0 +1,38 @@
+.add-transaction {
+  @extend .btn-clean;
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: none;
+  border-radius: 2rem;
+
+  &,
+  &:focus,
+  &:active,
+  &:hover {
+    background: rgb(33,150,243);
+    color: #fff;
+  }
+
+  @include screen-gt(sm) {
+    padding: .45rem 1rem;
+  }
+
+  @include screen(xs) {
+    padding: .6rem;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  }
+}
+
+.add-transaction-wrapper {
+  @include screen(xs) {
+    position: fixed;
+    z-index: $z-index-highest;
+    bottom: 20px;
+    right: 30px;
+  }
+}
+
+.is-child{
+  margin-left: 25px;
+}

@@ -1,0 +1,83 @@
+<sub-menu type="plan"></sub-menu>
+<div class="container plan-page">
+
+    <div class="content">
+        <div layout="row">
+            <md-input-container flex="40">
+                <label>Валюта</label>
+                <md-select ng-model="pCtrl.currentCurrency" ng-change="pCtrl.switchPlanCurrency()">
+                    <md-option ng-repeat="currency in pCtrl.currencyList" value="{{currency.id}}" track by $index
+                    ">
+                    {{currency.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex="40">
+                <label>Year</label>
+                <md-select ng-model="pCtrl.filterDate.year" ng-change="pCtrl.getList()">
+                    <md-option ng-repeat="year in pCtrl.years" value="{{year.id}}">
+                        {{year.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container flex="40">
+                <label>Month</label>
+                <md-select ng-model="pCtrl.filterDate.month" ng-change="pCtrl.getList()">
+                    <md-option ng-repeat="month in pCtrl.months" value="{{month.id}}">
+                        {{month.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <form name="plan" novalidate>
+            <table class="responsive-table">
+                <thead>
+                <th>Категорія</th>
+                <th>План</th>
+                <th>Дійсно</th>
+                <th>Різниця</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in pCtrl.planList track by $index">
+                    <ng-form name="planCategory">
+                        <td>{{item.name}}</td>
+                        <td ng-if="!pCtrl.isEditMode">{{item.amount}}</td>
+                        <td ng-if="pCtrl.isEditMode"><input type="number" ng-model="item.editAmount"></td>
+                        <td>{{item.real_amount || 0}}</td>
+                        <td>{{item.real}}</td>
+                    </ng-form>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div class="account-form__actions" ng-if="pCtrl.planList.length">
+        <md-button
+                class="md-raised md-primary md-button_override"
+                ng-show="!pCtrl.isEditMode"
+                ng-click="pCtrl.enableEditMode()"
+                >
+            Редагувати
+        </md-button>
+        <md-button
+                class="md-raised md-primary md-button_override"
+                ng-show="pCtrl.isEditMode"
+                ng-click="pCtrl.update()"
+                >
+            Зберегти
+        </md-button>
+        <md-button
+                class="md-raised md-warn md-button_override"
+                ng-show="pCtrl.isEditMode"
+                ng-click="pCtrl.disableEditMode()"
+                >
+            Відмінна
+        </md-button>
+    </div>
+    <div ng-if="!pCtrl.planList.length">
+        Добавте будь ласка категорії
+    </div>
+</div>
+

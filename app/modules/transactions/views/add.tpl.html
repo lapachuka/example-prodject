@@ -1,0 +1,60 @@
+<md-dialog aria-label="Add transaction" ng-cloak>
+    <form name="myForm">
+    <md-toolbar  ng-class="{'md-accent': addTCtrl.type == 'transaction', 'md-warn': addTCtrl.type == 'expenses', 'md-info': addTCtrl.type == 'general'}" class="md-accent">
+        <div class="md-toolbar-tools">
+            <h2>{{addTCtrl.title}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon aria-label="Close dialog">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <p class="error" ng-if="!addTCtrl.isValid()">* Будь ласка додайте спочатку всі потірбні категорії</p>
+            <div layout-gt-xs="row" layout-xs="column" class="md-inline-form">
+                <md-input-container flex-gt-xs="40">
+                    <label>Категорія</label>
+                    <md-select ng-model="addTCtrl.transaction.category_id">
+                        <md-option ng-repeat="category in addTCtrl.categories" ng-class='{"is-child":category.child}' value="{{category.id}}">
+                            {{category.name}}
+                        </md-option>
+                    </md-select>
+
+                </md-input-container>
+                <md-datepicker ng-model="addTCtrl.transaction.date"></md-datepicker>
+            </div>
+            <div layout-gt-xs="row" layout-xs="column">
+                <md-input-container flex-gt-xs="100">
+                    <label>Сума</label>
+                    <input ng-model="addTCtrl.transaction.amount" type="number">
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex="100">
+                    <label>Опис</label>
+                    <input ng-model="addTCtrl.transaction.description" type="text">
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex="100">
+                    <label>Рахунок</label>
+                    <md-select ng-model="addTCtrl.transaction.account_id">
+                        <md-option ng-repeat="account in addTCtrl.accountCategory" value="{{account.id}}">
+                            {{account.name}} - {{account.currency_name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button ng-click="cancel()">
+            Відмінити
+        </md-button>
+        <md-button class="md-primary md-raised u-margin-r-l" layout-align="center end" ng-click="ok()" ng-if="addTCtrl.isValid()">
+            Додати
+        </md-button>
+    </md-dialog-actions>
+    </form>
+</md-dialog>

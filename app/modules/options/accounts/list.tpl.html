@@ -1,0 +1,49 @@
+<sub-menu type="options"></sub-menu>
+<div class="container">
+    <form class="account-form account-form_in_container" novalidate name="account">
+        <div class="account-form__input">
+            <md-input-container class="md-block u-margin-b-n">
+                <label>Назва рахунку</label>
+                <input type="text" ng-model="aCtrl.account.name" required>
+            </md-input-container>
+        </div>
+        <div class="account-form__select">
+            <md-input-container>
+                <label>Валюта</label>
+                <md-select ng-model="aCtrl.account.currency_id">
+                    <md-option ng-repeat="currency in aCtrl.currencyList" value="{{currency.id}}" track by $index">
+                        {{currency.name}} ({{currency.country}})
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div class="account-form__actions">
+            <md-button class="md-raised md-primary md-button_override" ng-click="aCtrl.create()"
+                       ng-disabled="!aCtrl.isValid()" ng-if="!aCtrl.editMode">Додати
+            </md-button>
+            <md-button class="md-raised md-accent md-button_override " ng-click="aCtrl.update()"
+                       ng-disabled="!aCtrl.account.name" ng-if="aCtrl.editMode" ng-disabled="!aCtrl.account.name">
+                Зберегти
+            </md-button>
+            <md-button class="md-raised md-warn md-button_override" ng-if="aCtrl.editMode"
+                       ng-click="aCtrl.cancelEditMode()">Відмінити
+            </md-button>
+        </div>
+    </form>
+
+    <md-list ng-if="aCtrl.accounts.length">
+        <md-list-item ng-repeat="account in aCtrl.accounts track by $index" class="md-list-item_account_list">
+            {{account.name}} - {{account.currency_name}}
+            <div class="md-secondary">
+                <md-button class="md-icon-button" ng-click="aCtrl.remove($index)">
+                    <md-icon class="material-icons" aria-label="Delete">&#xE92B;</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" ng-click="aCtrl.enableEditMode($index)">
+                    <md-icon class="material-icons" aria-label="Edit">&#xE3C9;</md-icon>
+                </md-button>
+            </div>
+
+            <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+    </md-list>
+</div>

@@ -1,0 +1,114 @@
+  <div class="site__header site-header" ng-controller="headerController as headerCtrl">
+    <div class="container">
+      <div class="site-header-layout">
+        <div class="site-header-layout__logo">
+          <a class="site-logo" href="/#/">
+            <span>Budget</span>
+          </a>
+        </div>
+
+        <div class="site-header-layout__fit"></div>
+
+        <div class="site-header-layout__user">
+            <a class="site-header__logout" href="#" ng-click="headerCtrl.logout()">
+              <md-icon class="material-icons material-icons_user">exit_to_app</md-icon>
+            </a>
+        </div>
+
+        <div class="site-header-layout__nav-toggle">
+
+          <!--desktop fab-->
+          <md-fab-speed-dial md-direction="left" class="md-scale md-fab-top-right md-fab-top-right-nav" ng-if="!headerCtrl.smallScreen">
+
+            <md-fab-trigger>
+              <md-button aria-label="menu" class="md-raised md-warn md-button_override">
+                <md-tooltip md-direction="bottom" md-visible="tooltipVisible">додати транзакцію</md-tooltip>
+                <md-icon aria-label="menu">add</md-icon> Додати
+              </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+              <div>
+                <md-button aria-label="Дохід" class="md-fab md-raised md-mini"
+                           ng-click="headerCtrl.showAddIncomeDialog()">
+                  <md-tooltip md-direction="bottom"
+                              md-autohide="false">
+                    Дохід
+                  </md-tooltip>
+                  <md-icon aria-label="Дохід">playlist_add</md-icon>
+                </md-button>
+              </div>
+              <div>
+                <md-button aria-label="Витрати" class="md-fab md-raised md-mini"
+                           ng-click="headerCtrl.showAddExpenseDialog()">
+                  <md-tooltip md-direction="bottom"
+                              md-autohide="false">
+                    Витрати
+                  </md-tooltip>
+                  <md-icon aria-label="Витрати">remove</md-icon>
+                </md-button>
+              </div>
+              <div>
+                <md-button aria-label="Переказ" class="md-fab md-raised md-mini"
+                           ng-click="headerCtrl.showExchangeDialog()">
+                  <md-tooltip md-direction="bottom"
+                              md-autohide="false">
+                    Переказ
+                  </md-tooltip>
+                  <md-icon aria-label="Переказ">redo</md-icon>
+                </md-button>
+              </div>
+            </md-fab-actions>
+          </md-fab-speed-dial>
+
+          <!--mobile fab-->
+          <md-fab-speed-dial md-direction="up" class="md-scale md-fab-bottom-right md-fab-bottom-right-nav" ng-if="headerCtrl.smallScreen">
+
+            <md-fab-trigger>
+              <md-button aria-label="menu" class="md-fab md-warn">
+                <md-tooltip md-direction="left" md-visible="tooltipVisible">додати транзакцію</md-tooltip>
+                <md-icon aria-label="menu">add</md-icon>
+              </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+              <div>
+                <md-button aria-label="Дохід" class="md-fab md-raised md-mini"
+                           ng-click="headerCtrl.showAddIncomeDialog()">
+                  <md-tooltip md-direction="left"
+                              md-autohide="false">
+                    Дохід
+                  </md-tooltip>
+                  <md-icon aria-label="Дохід">playlist_add</md-icon>
+                </md-button>
+              </div>
+              <div>
+                <md-button aria-label="Витрати" class="md-fab md-raised md-mini"
+                           ng-click="headerCtrl.showAddExpenseDialog()">
+                  <md-tooltip md-direction="left"
+                              md-autohide="false">
+                    Витрати
+                  </md-tooltip>
+                  <md-icon aria-label="Витрати">remove</md-icon>
+                </md-button>
+              </div>
+              <div>
+                <md-button aria-label="Переказ" class="md-fab md-raised md-mini"
+                           ng-click="headerCtrl.showExchangeDialog()">
+                  <md-tooltip md-direction="left"
+                              md-autohide="false">
+                    Переказ
+                  </md-tooltip>
+                  <md-icon aria-label="Переказ">redo</md-icon>
+                </md-button>
+              </div>
+            </md-fab-actions>
+          </md-fab-speed-dial>
+
+        </div>
+
+        <div class="site-header-layout__nav">
+          <main-menu></main-menu>
+        </div>
+      </div>
+
+    </div>
+  </div>

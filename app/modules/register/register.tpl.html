@@ -1,0 +1,25 @@
+<div class="auth-block">
+    <form method="post" ng-submit="regCtrl.signUp()" novalidate layout="column" name="registerForm">
+        <md-input-container class="md-block u-margin-b-n" flex="100">
+            <label>Email</label>
+            <input type="email" ng-model="regCtrl.user.email" required>
+        </md-input-container>
+        <md-input-container class="md-block u-margin-b-n" flex="100">
+            <label>Password</label>
+            <input type="password" ng-model="regCtrl.user.password" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex="100">
+            <label>Repeat password</label>
+            <input type="password" ng-model="regCtrl.user.rePassword" required>
+        </md-input-container>
+
+        <md-button class="md-raised md-primary md-button_override" ng-disabled="registerForm.$invalid" type="submit">
+            Зареєструватись
+        </md-button>
+    </form>
+    <p class="u-text-center u-margin-b-n">
+        <a ui-sref="login">
+            <small>Повернутись на логін сторінку</small>
+        </a>
+    </p>
+</div>

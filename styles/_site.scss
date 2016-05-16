@@ -1,0 +1,42 @@
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site__header,
+.site__footer {
+  flex: none;
+}
+
+.site__content {
+  flex: 1 0 auto;
+}
+
+//
+// Modifier: state authorization
+//
+
+.site_state_auth {
+
+  &,
+  .site__header {
+    background-color: #ECEFF1;
+  }
+
+  .site__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+}
+
+//
+// Modifier of site content: bg muted
+//
+
+.site__content_bg_muted {
+  background-color: #ECEFF1;
+}

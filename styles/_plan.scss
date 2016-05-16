@@ -1,0 +1,21 @@
+.plan-page{
+  table{
+    width: 100%;
+    text-align: left;
+    line-height: 200%;
+
+    tr{
+      border-bottom: 1px solid #d0d0d0;
+      md-input-container{
+        margin: 0;
+      }
+    }
+  }
+
+  @include screen(xs) {
+    input{
+     width: 30px;
+    }
+  }
+
+}

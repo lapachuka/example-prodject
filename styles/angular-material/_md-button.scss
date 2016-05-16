@@ -1,0 +1,21 @@
+//
+// Override md-button angular material classs
+//
+
+.md-button_override {
+  padding: .6rem 1rem;
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: none;
+  border-radius: 2rem;
+  box-shadow: none;
+
+  .md-ripple-container {
+    border-radius: 2rem;
+  }
+
+  &.md-raised:not([disabled]) {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,10 @@
+.site-filterbar {
+  padding: 1rem 0;
+  background: #ECEFF1;
+
+  @include screen(xs) {
+    padding: .8rem 0 .9rem;
+  }
+}
+
+

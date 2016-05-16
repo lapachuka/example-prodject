@@ -1,0 +1,42 @@
+.material-icons {
+  height: 1em;
+  width: 1em;
+}
+
+//
+// Modifiers
+//
+
+.material-icons_add_transaction {
+  vertical-align: middle;
+
+  @include screen-gt(sm) {
+    opacity: .8;
+    font-size: 20px;
+    margin-right: .2rem;
+  }
+
+  @include screen(xs) {
+    opacity: 1;
+    font-size: 30px;
+  }
+}
+
+.material-icons_menu {
+  @include screen-gt(sm) {
+    font-size: 30px;
+  }
+}
+
+.material-icons_user {
+  color: rgba(0,0,0,0.54);
+  @include screen-gt(sm) {
+    font-size: 35px;
+  }
+}
+
+
+.material-icons_more-nav {
+  font-size: 28px;
+  color: rgba(0,0,0,0.54);
+}

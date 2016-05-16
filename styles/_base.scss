@@ -1,0 +1,40 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+  color: #666;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+//
+// Links
+//
+
+a {
+  color: rgb(33,150,243);
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: rgb(80, 169, 239);
+    text-decoration: none;
+  }
+
+  &:focus {
+    // Default
+    outline: thin dotted;
+    // WebKit
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+}

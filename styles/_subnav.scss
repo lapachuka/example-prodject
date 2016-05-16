@@ -1,0 +1,47 @@
+.subnav {
+  display: flex;
+  margin: 0 0 0 -1.7rem;
+  padding: 0;
+  list-style: none;
+  font-size: .9rem;
+}
+
+.subnav__item {
+  padding-left: 1.7rem;
+}
+
+.subnav__link {
+  display: block;
+  padding: .1rem 0;
+  text-decoration: none;
+  text-align: left;
+
+  color: #666;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.subnav__link_state_active {
+  font-weight: 400;
+  color: #0089CA;
+  border-bottom-color: rgba(0, 137, 202, 0.38);
+}
+
+@include screen-gt(md) {
+  .subnav__link {
+    margin: .3rem 0;
+  }
+}
+
+@include screen(xs) {
+  .subnav {
+    margin-left: -1rem;
+    font-size: .85rem;
+  }
+
+  .subnav__item {
+    padding-left: 1rem;
+  }
+
+
+}

@@ -1,0 +1,17 @@
+<div class="site-filterbar">
+    <div class="container">
+        <div layout-gt-xs layout-align="space-between center">
+            <ul class="subnav">
+                <li class="subnav__item" ng-repeat="subMenuItem in smCtrl.getSubMenuConfigByType().list">
+                    <a class="subnav__link"
+                       ng-href="#{{subMenuItem.url}}"
+                       ng-class="smCtrl.getClass('{{subMenuItem.url}}')"
+
+                            >
+                        <span class="">{{subMenuItem.name}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

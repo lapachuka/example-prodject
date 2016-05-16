@@ -1,0 +1,57 @@
+<md-dialog aria-label="Add transaction" ng-cloak>
+    <form name="myForm">
+        <md-toolbar  ng-class="{'md-accent': viewTCtrl.type == 'transaction', 'md-warn': viewTCtrl.type == 'expenses', 'md-info': viewTCtrl.type == 'general'}" class="md-accent">
+            <div class="md-toolbar-tools">
+                <h2>{{viewTCtrl.title}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="viewTCtrl.cancel()">
+                    <md-icon aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout-gt-xs="row" layout-xs="column" class="md-inline-form">
+                    <md-input-container flex-gt-xs="40">
+                        <md-input-contaner>
+                            Обмін
+                        </md-input-contaner>
+
+                    </md-input-container>
+                    <md-datepicker ng-model="viewTCtrl.transaction.date" disabled></md-datepicker>
+                </div>
+                <div layout-gt-xs="row" layout-xs="column">
+                    <md-input-container flex-gt-xs="100">
+                        <label>Сума</label>
+                        <input ng-model="viewTCtrl.transaction.amount" disabled type="number">
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Опис</label>
+                        <input ng-model="viewTCtrl.transaction.description" disabled type="text">
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Рахунок</label>
+                        <md-select ng-model="viewTCtrl.transaction.account_id">
+                            <md-option ng-repeat="account in viewTCtrl.accountCategory" disabled value="{{account.id}}">
+                                {{account.name}} - {{account.currency_name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button style="margin-right: 20px;" ng-click="viewTCtrl.cancel()">
+                Відмінити
+            </md-button>
+            <md-button class="md-primary" layout-align="center end" ng-click="viewTCtrl.showDeleteWindow()">
+                Видалити
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

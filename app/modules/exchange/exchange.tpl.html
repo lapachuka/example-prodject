@@ -1,0 +1,78 @@
+<md-dialog ng-cloak>
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2>{{exCtrl.title}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="exCtrl.closeWindow()">
+                <md-icon aria-label="Close dialog">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div layout-gt-xs="row">
+                <div flex-gt-xs="47">
+                    <md-toolbar class="md-accent u-margin-b">
+                        <h2 class="md-toolbar-tools">
+                            З
+                        </h2>
+                    </md-toolbar>
+                    <md-content>
+                        <div layout="row">
+                            <md-input-container flex>
+
+                                <label>Account</label>
+                                <md-select ng-model="exCtrl.from.account_id">
+                                    <md-option ng-repeat="account in exCtrl.accountCategory" value="{{account.id}}">
+                                        {{account.name}} ({{account.currency_name}})
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex="60">
+                                <label>Price</label>
+                                <input ng-model="exCtrl.from.amount" type="number">
+                            </md-input-container>
+                        </div>
+                    </md-content>
+                </div>
+                <span flex-gt-xs="5"></span>
+                <div flex-gt-xs="47">
+                    <md-toolbar class="md-info u-margin-b">
+                        <h2 class="md-toolbar-tools">
+                            На
+                        </h2>
+                    </md-toolbar>
+                    <md-content>
+                        <div layout="row">
+                            <md-input-container flex>
+                                <label>Account</label>
+                                <md-select ng-model="exCtrl.to.account_id">
+                                    <md-option ng-repeat="account in exCtrl.accountCategory" value="{{account.id}}">
+                                        {{account.name}} ({{account.currency_name}})
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container flex="60">
+                                <label>Price</label>
+                                <input ng-model="exCtrl.to.amount" type="number">
+                            </md-input-container>
+                        </div>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button ng-click="exCtrl.closeWindow()">
+            Відмінити
+        </md-button>
+        <md-button class="md-primary md-raised u-margin-r-l" ng-click="exCtrl.change()">
+            Перевести
+        </md-button>
+    </md-dialog-actions>
+
+</md-dialog>

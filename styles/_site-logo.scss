@@ -1,0 +1,12 @@
+.site-logo {
+  font-size: 1.7rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+
+  @include screen(xs) {
+    font-size: 1.3rem;
+  }
+}

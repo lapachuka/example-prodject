@@ -1,0 +1,32 @@
+<div class="auth-block">
+    <form name="loginForm" novalidate layout="column" ng-submit="loginCtrl.signIn()">
+        <md-input-container class="md-block" flex="100">
+            <label>Email</label>
+            <input type="email" ng-model="loginCtrl.user.email" required name="loginEmail">
+            <div ng-messages="loginForm.loginEmail.$error" role="alert">
+                <div ng-message="required">This is required</div>
+                <div ng-message="email">Email is wrong</div>
+            </div>
+        </md-input-container>
+        <md-input-container flex="100" class="u-margin-t-n">
+            <label>Password</label>
+            <input type="password" ng-model="loginCtrl.user.password" required name="loginPassword" ng-minlength="3">
+            <div ng-messages="loginForm.loginPassword.$error" role="alert">
+                <div ng-message="required">This is required</div>
+                <div ng-message="minlength">Password should have 3 symbols at least</div>
+            </div>
+        </md-input-container>
+        <md-button ng-disabled="loginForm.$invalid" class="md-raised md-warn md-button_override" type="submit">Log in
+        </md-button>
+        <md-button class="md-raised md-primary md-button_override" href="/user/auth/facebook">Facebook</md-button>
+        <p class="u-text-center u-margin-b-n">
+            <a ui-sref="forgot">
+                <small>Forgot password?</small>
+            </a>
+        </p>
+    </form>
+</div>
+<p>
+    Don't have an account?
+    <a ui-sref="register">Реєстрація</a>
+</p>
