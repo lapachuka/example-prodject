@@ -1,1 +1,1 @@
-# Example prodject
+# Example project
